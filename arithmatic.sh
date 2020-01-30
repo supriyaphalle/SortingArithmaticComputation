@@ -15,3 +15,6 @@ echo $result2;
 result3=`echo "scale=2; $c + $a / $b" | bc`
 echo $result3;
 
+result4=`echo "scale=2; $a % $b + $c" | bc`
+echo $result4;
+
