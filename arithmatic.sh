@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash  
 
 echo " Welcome to the Sorting and arithmatic computations"
 
@@ -27,8 +27,24 @@ echo "Direct Result through Dictionary ${Results[@]}"
 
 for ((i=1;i<5;i++))
 do
-		a[i]=${Results[$i]}
+		array[i]=${Results[$i]}
 done
 
+echo "Result through Array:  ${array[@]} "
 
-echo "Result through Array:${a[@]} "
+
+#Sorting in DEcending order
+i=1;
+while (($i < $((${#array[@]})) ))
+do
+	j=$((i+1))
+	if (( ${array[i]%.*} < ${array[j]%.*} ))
+	then
+		temp=${array[i]}
+		array[i]=${array[j]}
+		array[j]=$temp
+	fi
+	((i++))
+done
+
+echo " Decenfing order : ${array[@]}"
