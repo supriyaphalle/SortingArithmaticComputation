@@ -2,19 +2,18 @@
 
 echo " Welcome to the Sorting and arithmatic computations"
 
+declare -A Results
+
 read -p 'Enter first number: ' a;
 read -p 'enter 2nd number: ' b;
 read -p 'enter 3rd number: ' c;
 
-result1=`echo "$a + $b * $c" | bc`
-echo $result1;
+Results[result1]=`echo "$a + $b * $c" | bc`
 
-result2=`echo "$a * $b + $c" | bc`
-echo $result2;
+Results[result2]=`echo "$a * $b + $c" | bc`
 
-result3=`echo "scale=2; $c + $a / $b" | bc`
-echo $result3;
+Results[result3]=`echo "scale=2; $c + $a / $b" | bc`
 
-result4=`echo "scale=2; $a % $b + $c" | bc`
-echo $result4;
+Results[result4]=`echo " $a % $b +$c" | bc`
 
+echo ${Results[@]}
